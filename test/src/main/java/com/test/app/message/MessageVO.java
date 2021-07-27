@@ -3,13 +3,14 @@ package com.test.app.message;
 public class MessageVO {
 
 
-	private String mid;
+	private int mid;
 	private String writer;
 	private String content;
-	public String getMid() {
+	
+	public int getMid() {
 		return mid;
 	}
-	public void setMid(String mid) {
+	public void setMid(int mid) {
 		this.mid = mid;
 	}
 	public String getWriter() {

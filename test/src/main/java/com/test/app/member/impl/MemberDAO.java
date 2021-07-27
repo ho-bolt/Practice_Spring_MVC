@@ -1,19 +1,23 @@
 package com.test.app.member.impl;
 
 import java.sql.Connection;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import org.springframework.stereotype.Repository;
+
 import com.test.app.common.JDBC;
 import com.test.app.member.MemberVO;
 
+@Repository("memberDAO")
 public class MemberDAO {
 	
 	Connection conn=null;
 	PreparedStatement pstmt=null;
 	
-	public void Join(MemberVO vo) {
+	public void InsertMember(MemberVO vo) {
 		
 		String sql="insert into member (id,passward,name) values(?,?,?,'USER')";
 		System.out.println("회원가입중");

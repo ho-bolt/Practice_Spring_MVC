@@ -1,14 +1,19 @@
 package com.test.app.member.impl;
 
-import com.test.app.member.MemberVO;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-public class MemberServiceImpl {
-	
+import com.test.app.member.MemberService;
+import com.test.app.member.MemberVO;
+@Service("MemberService")
+public class MemberServiceImpl implements MemberService{
+	@Autowired
 	private MemberDAO memberDAO;
 	
-	public void Join(MemberVO vo) {
-		memberDAO.Join(vo);
-	}
+
+	public void insert(MemberVO vo) {
+		memberDAO.InsertMember(vo);
+	}	
 	
 	
 	public MemberVO Login(MemberVO vo) {
