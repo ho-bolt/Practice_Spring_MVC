@@ -14,4 +14,6 @@ create table member(
  	role varchar(30)
 );
 
+insert into message(mid,writer,content) values(1,'me','whatsup'); 
+select * from MESSAGE;
 drop table member;
