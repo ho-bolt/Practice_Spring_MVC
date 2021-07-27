@@ -10,6 +10,8 @@ create table message(
 create table member(
  	id varchar(30) primary key,
  	password varchar(30),
- 	name varchar(30)
+ 	name varchar(30),
+ 	role varchar(30)
 );
 
+drop table member;
