@@ -15,5 +15,5 @@ create table member(
 );
 
 insert into message(mid,writer,content) values(1,'me','whatsup'); 
-select * from MESSAGE;
+select * from message;
 drop table member;

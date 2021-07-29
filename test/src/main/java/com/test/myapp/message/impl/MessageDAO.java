@@ -118,7 +118,7 @@ public class MessageDAO {
 		conn=JDBC.getconntection();
 		System.out.println("메세지 목록 불러오기");
 		List<MessageVO> datas=new ArrayList();
-		String sql="select * from message where mid=? order by desc";
+		String sql="select * from message where mid=? order by mid desc";
 		try {
 			pstmt=conn.prepareStatement(sql);
 			pstmt.setInt(1, vo.getMid());
