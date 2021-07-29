@@ -42,7 +42,7 @@ public class MemberDAO {
 	
 	public MemberVO Login(MemberVO vo) {
 			
-		String sql="select * from member where id=? and passward=?";
+		String sql="select * from member where id=? and password=?";
 		System.out.println("로그인하기");
 		MemberVO data=null;
 		conn=JDBC.getconntection();
@@ -55,7 +55,7 @@ public class MemberDAO {
 			ResultSet rs=pstmt.executeQuery();
 			if(rs.next()) {
 				data.setId(rs.getString("id"));
-				data.setPassword(rs.getString("passward"));
+				data.setPassword(rs.getString("password"));
 				data.setName(rs.getString("name"));
 				data.setRole(rs.getString("role"));
 			}

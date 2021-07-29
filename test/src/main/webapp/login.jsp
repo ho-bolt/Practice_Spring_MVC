@@ -35,11 +35,6 @@
 									<input type="text" name="id" >
 									비밀번호
 									<input type="password" name="password" >
-									관리
-									<select>
-										<option>ADMIT</option>
-										<option>USER</option>
-									</select>
 									
 									<input type="submit" value="로그인">
 									

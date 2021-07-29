@@ -14,6 +14,7 @@
 		<property name="mappings">
 			<props>
 				<prop key="/insertMember.do">insertMember</prop>
+				<prop key="/login.do">login</prop>
 			
 			</props>
 		</property>	
@@ -21,6 +22,6 @@
 	
 			<!-- controller 목록 -->
 			<bean id="insertMember" class="com.test.view.member.InsertMemberController"/>
-			
+			<bean id="login" class="com.test.view.member.LoginController"/>			
 			
 </beans>
