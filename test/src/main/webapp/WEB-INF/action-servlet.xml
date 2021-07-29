@@ -8,6 +8,19 @@
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.2.xsd">
 
 		
-		<context:component-scan base-package=" "></context:component-scan>
-		
+	<context:component-scan base-package="com.test.view"/>	
+	<!-- handlerMapping 등록 -->
+	<bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="mappings">
+			<props>
+				<prop key="/insertMember.do">insertMember</prop>
+			
+			</props>
+		</property>	
+	</bean>
+	
+			<!-- controller 목록 -->
+			<bean id="insertMember" class="com.test.view.member.InsertMemberController"/>
+			
+			
 </beans>

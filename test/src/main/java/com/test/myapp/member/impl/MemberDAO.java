@@ -19,7 +19,7 @@ public class MemberDAO {
 	
 	public void InsertMember(MemberVO vo) {
 		
-		String sql="insert into member (id,passward,name) values(?,?,?,'USER')";
+		String sql="insert into member (id,password,name,role) values(?,?,?,?)";
 		System.out.println("회원가입중");
 		conn=JDBC.getconntection();
 		
@@ -28,6 +28,7 @@ public class MemberDAO {
 			pstmt.setString(1,vo.getId() );
 			pstmt.setString(2,vo.getPassword() );
 			pstmt.setString(3,vo.getName() );
+			pstmt.setString(4, vo.getRole());
 			pstmt.executeUpdate();
 			
 		} catch (SQLException e) {

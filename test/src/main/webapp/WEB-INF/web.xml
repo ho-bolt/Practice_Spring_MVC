@@ -3,17 +3,18 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee https://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 
+<!-- 
   <context-param>
       <param-name>contextConfigLocation</param-name>
       <param-value>classpath:applicationContext.xml</param-value>
    </context-param>
-   
-   <listener><!-- 컴퓨터가 동작하면 applicationContext.xml을 볼 수 있도록 해줌 -->
+
+   <listener> 컴퓨터가 동작하면 applicationContext.xml을 볼 수 있도록 해줌 
       <listener-class>
          org.springframework.web.context.ContextLoaderListener
-      </listener-class><!-- applicationContext.xml을 미리 읽는다 -->
+      </listener-class> applicationContext.xml을 미리 읽는다
    </listener>
-   
+    -->
 	<filter>
 		<filter-name>characterEncoding</filter-name>
 		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class><!-- springframework에서 기본적으로 제공하는 필터  -->
