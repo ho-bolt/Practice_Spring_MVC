@@ -31,7 +31,7 @@
 					<nav id="nav">
 						<ul>
 							<li><a href="#intro" class="active">글 작성하기</a></li>
-							<li><a href="#first">First Section</a></li>
+							<li><a href="getMsgList.do">게시글 보러가기</a></li>
 							<li><a href="#second">Second Section</a></li>
 							<li><a href="#cta">Get Started</a></li>
 							<li><a href="login.jsp">로그인</a></li>
@@ -51,16 +51,18 @@
 										</header>
 										<form action="insertMsg.do" method="post">
 											<ul>
-												<li><input type="text" name="writer"></li>
-												<li><input type="text" name="content"></li>
+												<li>작성자</li>
+												<li><input type="text" name="writer" ></li>
+												<li>내용</li>
+												<li><input type="text" name="content" style="height:100px"></li>
 										
+												<li><input type="submit" value="글 등록" style="margin:10px"></li>
 											</ul>
 									
 										</form>
 										
 										
 										<ul class="actions">
-											<li><input type="submit" value="글 등록"></li>
 										</ul>
 									</div>
 									<span class="image"><img src="images/pic01.jpg" alt="" /></span>

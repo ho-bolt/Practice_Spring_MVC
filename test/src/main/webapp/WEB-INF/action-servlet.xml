@@ -15,6 +15,9 @@
 			<props>
 				<prop key="/insertMember.do">insertMember</prop>
 				<prop key="/login.do">login</prop>
+				<prop key="/insertMsg.do">insertMsg</prop>
+				<prop key="/getMsgList.do">getMsgList</prop>
+				<prop key="/getMsg.do">getMsg</prop>
 			
 			</props>
 		</property>	
@@ -23,5 +26,8 @@
 			<!-- controller 목록 -->
 			<bean id="insertMember" class="com.test.view.member.InsertMemberController"/>
 			<bean id="login" class="com.test.view.member.LoginController"/>			
+			<bean id="insertMsg" class="com.test.view.message.InsertMsgController"/>
+			<bean id="getMsgList" class="com.test.view.message.GetMsgListController"/>
+			<bean id="getMsg" class="com.test.view.message.GetMsgController"/>
 			
 </beans>
