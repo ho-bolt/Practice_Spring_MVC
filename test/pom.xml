@@ -38,6 +38,7 @@
          <artifactId>jstl</artifactId>
          <version>1.2</version>
       </dependency>
+      
       <dependency>
          <groupId>taglibs</groupId>
          <artifactId>standard</artifactId>
@@ -57,12 +58,6 @@
 	</dependency>
 	<!-- aop할때는 이렇게 위의 2개가 필요하다 -->
 	
-		<!-- AspectJ -->
-		<dependency>
-			<groupId>org.aspectj</groupId>
-			<artifactId>aspectjrt</artifactId>
-			<version>${org.aspectj-version}</version>
-		</dependency>	
 		<!-- DBCP -->
 		<dependency>
 			<groupId>commons-dbcp</groupId>

@@ -2,6 +2,7 @@ package com.test.view.message;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.Controller;
@@ -9,7 +10,6 @@ import org.springframework.web.servlet.mvc.Controller;
 import com.test.myapp.message.MessageVO;
 import com.test.myapp.message.impl.MessageDAO;
 
-import oracle.jdbc.driver.Message;
 
 public class GetMsgController implements Controller{
 	
@@ -24,9 +24,11 @@ public class GetMsgController implements Controller{
 		 
 		 vo.setMid(Integer.parseInt(mid));
 		 MessageVO v=dao.getMsg(vo);
+		 HttpSession session=request.getSession();
+		 session.setAttribute("v", v);
 		 
 		 ModelAndView mav=new ModelAndView();
-		 mav.addObject("v",v);
+		// mav.addObject("v",v);
 		 mav.setViewName("getMsg.jsp");
 	
 		return mav;

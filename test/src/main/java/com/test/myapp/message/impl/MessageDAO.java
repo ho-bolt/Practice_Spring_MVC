@@ -92,7 +92,7 @@ public class MessageDAO {
 		System.out.println("유저 정보 가져오기");
 		conn=JDBC.getconntection();
 		String sql="select * from message where mid=?";
-		MessageVO data=null;
+		MessageVO data=null;//작업물 없으면 null이 들어간다. 
 		try {
 			pstmt=conn.prepareStatement(sql);
 			pstmt.setInt(1, vo.getMid());
@@ -115,13 +115,12 @@ public class MessageDAO {
 	}
 	
 	public List<MessageVO> getMsgList(MessageVO vo){
+		String sql="select * from message order by mid desc";
 		conn=JDBC.getconntection();
-		System.out.println("메세지 목록 불러오기");
+		System.out.println("메세지 목록 불러오기 dao");
 		List<MessageVO> datas=new ArrayList();
-		String sql="select * from message where mid=? order by mid desc";
 		try {
 			pstmt=conn.prepareStatement(sql);
-			pstmt.setInt(1, vo.getMid());
 			ResultSet rs=pstmt.executeQuery();
 			while(rs.next()) {
 				MessageVO data=new MessageVO();

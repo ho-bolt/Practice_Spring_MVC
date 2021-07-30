@@ -26,7 +26,7 @@ public class InsertMsgController implements Controller{
 			dao.InsertMessage(vo);
 			
 			ModelAndView mav=new ModelAndView();
-			mav.setViewName("getMessageList.jsp");
+			mav.setViewName("index.jsp");
 			
 	
 		return mav;

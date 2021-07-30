@@ -57,12 +57,14 @@
 														<th>작성자</th>
 														<th>내용</th>
 													</tr>
+												<c:forEach items="${msgList }" var="v">
 												
 													<tr>
-														<td>${v.mid }</td>
+														<td><a href="getMsg.do?mid=${v.mid }">${v.mid }</a></td>
 														<td>${v.writer}</td>
-														<td><input type="text" value="${v.content }"></td>
+														<td>${v.content }</td>
 													</tr>
+													</c:forEach>
 													
 												</tbody>
 												
