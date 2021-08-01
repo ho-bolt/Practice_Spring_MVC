@@ -58,7 +58,7 @@
 	</dependency>
 	<!-- aop할때는 이렇게 위의 2개가 필요하다 -->
 	
-		<!-- DBCP -->
+		<!-- DBCP  jdbcTemplate를 사용하기 위해서 필요-->
 		<dependency>
 			<groupId>commons-dbcp</groupId>
 			<artifactId>commons-dbcp</artifactId>
@@ -70,6 +70,7 @@
          <artifactId>spring-jdbc</artifactId>
          <version>${org.springframework-version}</version>
       </dependency>
+      
 	<!-- JDBC 드라이버 연결 -오라클 -->
 		<dependency>
 				<groupId>com.oracle.database.jdbc</groupId>

@@ -33,9 +33,9 @@
 							<section id="Join_Member" class="Join_main" >
 								<form action="login.do" method="post">
 									아이디
-									<input type="text" name="id" >
+									<input type="text" name="id" value="${member.id }">
 									비밀번호
-									<input type="password" name="password" >
+									<input type="password" name="password" value="${member.password }" >
 									
 									<input type="submit" value="로그인">
 									

@@ -26,7 +26,7 @@
 				<!-- Header -->
 					<header id="header">
 					<a href="index.jsp"><span class="logo"><img src="images/logo.svg" alt="" /></span></a>
-						<h1>게시글 목록들</h1>
+						<h1>마이페이지 목록들</h1>
 						<p>Spring Project Practice</p>
 					</header>
 
@@ -47,10 +47,11 @@
 
 								<!-- Table -->
 								<section>
+								${v.name }님 게시글 
 										<h2>Msg Table</h2>
 										<div class="table-wrapper">
 										<form action="updateMsg.do" method="post"> 
-										<input type="hidden" value="${msgData.mid}" name="mid"/>
+										<input type="hidden" value="${v.mid}" name="mid"/>
 											<table>
 												<thead>
 												</thead>
@@ -62,16 +63,16 @@
 													</tr>
 												
 													<tr>
-														<td>${msgData.mid }</td>
-														<td>${msgData.writer}</td>
-														<td><input type="text" value="${msgData.content }" name="content"></td>
+														<td>${v.mid }</td>
+														<td>${v.writer}</td>
+														<td><input type="text" value="${v.content }" name="content"></td>
 													</tr>
 														
 												</tbody>
 													
 											</table>
 											<input type="submit" value="수정하기">
-											<a href="deleteMsg.do?mid=${msgData.mid }">삭제</a>		
+											<a href="deleteMsg.do?mid=${v.mid }">삭제</a>		
 											
 											</form>
 										</div>

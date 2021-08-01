@@ -20,6 +20,9 @@
 			<div id="wrapper">
 
 				<!-- Header -->
+				
+				
+				
 					<header id="header" class="alt">
 						<span class="logo"><img src="images/logo.svg" alt="" /></span>
 						<h1>Stellar</h1>
@@ -29,10 +32,11 @@
 
 				<!-- Nav -->
 					<nav id="nav">
+						<h3>${memberName}님 환영합니다!</h3> <a href="logout.do">로그아웃</a>
 						<ul>
 							<li><a href="#intro" class="active">글 작성하기</a></li>
 							<li><a href="getMsgList.do">게시글 보러가기</a></li>
-							<li><a href="#second">Second Section</a></li>
+							<li><a href="mypage.jsp">마이페이지</a></li>
 							<li><a href="#cta">Get Started</a></li>
 							<li><a href="login.jsp">로그인</a></li>
 							<li><a href="join.jsp">회원가입</a></li>

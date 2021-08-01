@@ -47,6 +47,25 @@
 
 								<!-- Table -->
 								<section>
+								<form action="getMsgList.do" method="post">
+									<table>
+										<tr>
+											<td>
+												<select name="search"> <!-- search는 찾아볼 거 -->
+													<c:forEach items="${resultMap}" var="o">
+														<option value="${o.value }">${o.key }</option>
+													</c:forEach>
+												</select>
+												<input type="text" name="searchContent"><!-- 내가 입력한 거 -->
+												<input type="submit" value="검색하기">
+											</td>
+										</tr>
+									
+									
+									</table>
+								
+								
+								</form>
 										<h2>Msg Table</h2>
 										<div class="table-wrapper">
 											<table>
