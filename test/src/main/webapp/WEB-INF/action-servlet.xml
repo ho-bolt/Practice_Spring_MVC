@@ -9,7 +9,11 @@
 
 		
 	<context:component-scan base-package="com.test.view"/>	
-	<!-- handlerMapping 등록 -->
+	
+	
+	<!-- 1번 방법
+	이것은 controller만들어서 한 것, 이제는 매핑하지 말고, @을 이용하여 할 예정 
+	 handlerMapping 등록 
 	<bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
 		<property name="mappings">
 			<props>
@@ -18,16 +22,26 @@
 				<prop key="/insertMsg.do">insertMsg</prop>
 				<prop key="/getMsgList.do">getMsgList</prop>
 				<prop key="/getMsg.do">getMsg</prop>
+				<prop key="/updateMsg.do">update</prop>
+				<prop key="/deleteMsg.do">delete</prop>
 			
 			</props>
 		</property>	
 	</bean>
-	
-			<!-- controller 목록 -->
+				
+			메소드에 @Controller를 붙인 것은 이것을 대신 한 것이다. 
+			하지만 handlerMapping을 할 친구가 없기 때문에 그것을 할 @이 필요하다. 
+			그것이 바로 RequestMapping
+			
+			
+				
+			 controller 목록
 			<bean id="insertMember" class="com.test.view.member.InsertMemberController"/>
 			<bean id="login" class="com.test.view.member.LoginController"/>			
 			<bean id="insertMsg" class="com.test.view.message.InsertMsgController"/>
 			<bean id="getMsgList" class="com.test.view.message.GetMsgListController"/>
 			<bean id="getMsg" class="com.test.view.message.GetMsgController"/>
-			
+			<bean id="update" class="com.test.view.message.UpdateMsgController"/>
+			<bean id="delete" class="com.test.view.message.DeleteMsgController"/>
+			 -->
 </beans>

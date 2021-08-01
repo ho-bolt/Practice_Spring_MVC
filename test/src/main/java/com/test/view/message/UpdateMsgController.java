@@ -2,7 +2,6 @@ package com.test.view.message;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,20 +10,18 @@ import org.springframework.web.servlet.ModelAndView;
 import com.test.myapp.message.MessageVO;
 import com.test.myapp.message.impl.MessageDAO;
 
+
 @Controller
-public class GetMsgController{
-	
-	@RequestMapping(value="/getMsg.do")
-	public ModelAndView getMsg(MessageVO vo,MessageDAO dao, ModelAndView mav) throws Exception {
+public class UpdateMsgController {
+	@RequestMapping(value="/updateMsg.do")
+	public String updateMsg(MessageVO vo,MessageDAO dao) throws Exception {
 		
-		System.out.println("id값 게시글 보기 ");
+		System.out.println("수정 컨트롤러");
 		
-		 
-		 MessageVO v=dao.getMsg(vo);
-		 
-		 mav.addObject("v",v);
-		 mav.setViewName("getMsg.jsp");
-		 return mav;
+		dao.UpdateMessage(vo);
+		
+		
+		return "getMsgList.do";
 	}
 	
-}		
+}

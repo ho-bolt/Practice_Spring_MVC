@@ -46,7 +46,7 @@ public class MessageDAO {
 	}
 	public void DeleteMessage(MessageVO vo) {
 		conn=JDBC.getconntection();
-		System.out.println("메세지 삭제");
+		System.out.println("메세지 삭제 dao");
 		String sql="delete from message where mid=?";
 		try {
 			pstmt=conn.prepareStatement(sql);
@@ -66,18 +66,15 @@ public class MessageDAO {
 	
 	public void UpdateMessage(MessageVO vo) {
 		
-		System.out.println("메세지 업데이트");
+		System.out.println("메세지 업데이트 dao");
 		conn=JDBC.getconntection();
-		String sql="update message set writer=?, content=? where mid=?";
+		String sql="update message set content=? where mid=?";
 		try {
 			pstmt=conn.prepareStatement(sql);
-			pstmt.setString(1, vo.getWriter());
-			pstmt.setString(2, vo.getContent());
-			pstmt.setInt(3, vo.getMid());
+			pstmt.setString(1, vo.getContent());
+			pstmt.setInt(2, vo.getMid());
 			pstmt.executeUpdate();
-			
-			
-			
+		
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

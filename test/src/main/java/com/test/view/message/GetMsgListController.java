@@ -6,31 +6,29 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.Controller;
 
 import com.test.myapp.message.MessageVO;
 import com.test.myapp.message.impl.MessageDAO;
 
-public class GetMsgListController implements Controller{
-	
-	@Override
-	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
+@Controller
+public class GetMsgListController {
+
+	@RequestMapping(value="/getMsgList.do")
+	public ModelAndView getMsgList(MessageVO vo,MessageDAO dao,ModelAndView mav)  {//command 객체
 
 		System.out.println("메세지 목록 출력중 컨트롤러 ");
 		
-		MessageVO vo=new MessageVO();
-		 MessageDAO dao=new MessageDAO();
 		 
 		 List<MessageVO> msgList=dao.getMsgList(vo);
 		// HttpSession session=request.getSession();
 		 //session.setAttribute("msgList", msgList);
 		 
-		 ModelAndView mav=new ModelAndView();
 		 mav.addObject("msgList", msgList);
 		 mav.setViewName("getMsgList.jsp");
 		 return mav;
-		 
 		
 		
 		

@@ -21,6 +21,7 @@
 
 				<!-- Header -->
 					<header id="header">
+					<a href="index.jsp"><span class="logo"><img src="images/logo.svg" alt="" /></span></a>
 						<h1>로그인</h1>
 						<p>Spring Project InsertMember연습 </p>
 					</header>

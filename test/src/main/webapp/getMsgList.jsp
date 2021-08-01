@@ -25,6 +25,7 @@
 
 				<!-- Header -->
 					<header id="header">
+					<a href="index.jsp"><span class="logo"><img src="images/logo.svg" alt="" /></span></a>
 						<h1>게시글 목록들</h1>
 						<p>Spring Project Practice</p>
 					</header>
