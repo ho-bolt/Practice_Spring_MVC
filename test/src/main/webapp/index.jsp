@@ -51,7 +51,8 @@
 								<div class="spotlight">
 									<div class="content">
 										<header class="major">
-											<h2>새로운 글 작성하기</h2>
+											<h2>새로운 
+											글 작성하기</h2>
 										</header>
 										<form action="insertMsg.do" method="post">
 											<ul>

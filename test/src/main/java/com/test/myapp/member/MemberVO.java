@@ -10,6 +10,7 @@ public class MemberVO {
 	private String name;
 	private String role;
 	
+	
 	public String getRole() {
 		return role;
 	}

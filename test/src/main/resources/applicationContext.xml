@@ -12,6 +12,8 @@
 
 	<context:component-scan base-package="com.test.myapp"/>	
 
+
+	<!-- autowired를 주입하기 위해서는 얘가 먼저 돌아야 가능하다 따라서 web-xml에서 경로를 여기로 바꾸어 준다. 리스너와 context-param 으로  -->
 		<!-- DataSource -->
    <bean class="org.apache.commons.dbcp.BasicDataSource" id="ds" destroy-method="close">
       <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />

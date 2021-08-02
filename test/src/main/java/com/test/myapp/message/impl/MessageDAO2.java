@@ -22,12 +22,12 @@ public class MessageDAO2 {
 	
 	
 	public void InsertMessage(MessageVO vo) {
-		System.out.println("메세지 삽입");		
+		System.out.println("메세지 삽입 jdbctemplate");		
 		String sql="insert into message (mid,writer,content) values((select nvl(max(mid),0)+1 from message),?,?)";
-			jdbctemplate.update(sql,vo.getMid(),vo.getWriter(),vo.getContent());
+			jdbctemplate.update(sql,vo.getWriter(),vo.getContent());
 	}
 	public void DeleteMessage(MessageVO vo) {
-		System.out.println("메세지 삭제 dao");
+		System.out.println("메세지 삭제 dao jdbctemplate");
 		String sql="delete from message where mid=?";
 		jdbctemplate.update(sql,vo.getMid());
 		
@@ -35,16 +35,16 @@ public class MessageDAO2 {
 	
 	public void UpdateMessage(MessageVO vo) {
 		
-		System.out.println("메세지 업데이트 dao");
+		System.out.println("메세지 업데이트 dao jdbctemplate");
 		String sql="update message set content=? where mid=?";
-		jdbctemplate.update(sql,vo.getMid(),vo.getContent());
+		jdbctemplate.update(sql,vo.getContent(),vo.getMid());
 		
 		
 	}
 //	public List<MessageVO>getMsgList(MessageVO vo);
 	
 	public MessageVO getMsg(MessageVO vo) {
-		System.out.println("유저 정보 가져오기");
+		System.out.println("유저 정보 가져오기 jdbctemplate");
 		String sql="select * from message where mid=?";
 		MessageVO data=null;//작업물 없으면 null이 들어간다. 
 		Object [] args= {vo.getMid()};
@@ -53,16 +53,22 @@ public class MessageDAO2 {
 	}
 	
 	public List<MessageVO> getMsgList(MessageVO vo){
-		String sql="select * from message order by mid desc";
-		System.out.println("메세지 목록 불러오기 dao");
-		List<MessageVO> datas=new ArrayList();
-		Object []args= {vo.getMid()};
+		String sql="select * from message where writer like '%'||?||'%' order by mid desc";			
+	    String sql2="select * from message where content like '%'||?||'%' order by mid desc";
+		System.out.println("메세지 목록 불러오기 dao jdbctemplate");
 		
-		return (List<MessageVO>) jdbctemplate.queryForObject(sql, args,new MessageRowMapper());
+		Object []args= {vo.getSearchContent()};
+		
+		if(vo.getSearch().equals("writer")) {
+			return jdbctemplate.query(sql, args,new MessageRowMapper());		
+		}
+		else {
+			return jdbctemplate.query(sql2, args,new MessageRowMapper());	
+		}
 		
 	}
 	
-	class MessageRowMapper implements RowMapper<MessageVO>{
+	class MessageRowMapper implements RowMapper{
 		public MessageVO mapRow(ResultSet rs, int rowNum) throws SQLException {
 			MessageVO data=new MessageVO();
 			data.setMid(rs.getInt("mid"));

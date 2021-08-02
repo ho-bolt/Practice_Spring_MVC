@@ -64,7 +64,7 @@
 													</tr>
 												
 													<tr>
-														<td><input type="text" name="id" value="${vvv.id}"></td>
+														<td>${vvv.id}</td>
 														<td><input type="password" name="password" value="${vvv.password}"></td>
 														<td><input type="text" name="name" value="${vvv.name}"></td>
 														<td>${vvv.role}</td>

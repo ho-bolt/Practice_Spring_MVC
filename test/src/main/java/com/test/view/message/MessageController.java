@@ -92,12 +92,19 @@ public class MessageController {
 	
 	}
 	*/
+	//command객체 사용
 	@RequestMapping(value="/getMsgList.do")
-	public String getMsgList(MessageVO vo,MessageDAO dao, Model m)  {//command 객체
+	public String getMsgList(MessageVO vo, Model m)  {//command 객체
 		//검색으로 들어온 값이 항상 있냐? 아니니까 false 
 		System.out.println("메세지 목록 출력중 컨트롤러 ");
-		
-		 List<MessageVO> msgList=dao.getMsgList(vo);
+		//검색하지 않았을 때도 필요하다
+		if(vo.getSearch()==null) {
+			vo.setSearch("writer");
+		}
+		else if(vo.getContent()==null) {
+			vo.setContent("content");
+		}
+		 List<MessageVO> msgList=messageService.getMsgList(vo);
 		 m.addAttribute("msgList", msgList);
 		 
 		 return "getMsgList.jsp";

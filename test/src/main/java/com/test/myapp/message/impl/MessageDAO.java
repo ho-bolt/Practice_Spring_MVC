@@ -113,12 +113,24 @@ public class MessageDAO {
 	}
 	
 	public List<MessageVO> getMsgList(MessageVO vo){
-		String sql="select * from message order by mid desc";
+//		String sql="select * from message order by mid desc";
+//		String sql2="select * from message order by mid desc";
+		String sql="select * from message where writer like '%'||?||'%' order by mid desc";			
+	    String sql2="select * from message where content like '%'||?||'%' order by mid desc";	
 		conn=JDBC.getconntection();
 		System.out.println("메세지 목록 불러오기 dao");
 		List<MessageVO> datas=new ArrayList();
+		
+	
 		try {
-			pstmt=conn.prepareStatement(sql);
+			
+			if(vo.getSearch().equals("writer")) {
+				pstmt=conn.prepareStatement(sql);				
+			}
+			else {
+				pstmt=conn.prepareStatement(sql2);
+			}
+			pstmt.setString(1, vo.getSearchContent());//sql문에 있는 ?한개 의미 
 			ResultSet rs=pstmt.executeQuery();
 			while(rs.next()) {
 				MessageVO data=new MessageVO();
