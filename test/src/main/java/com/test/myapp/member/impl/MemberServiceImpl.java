@@ -8,7 +8,7 @@ import com.test.myapp.member.MemberVO;
 @Service("MemberService")
 public class MemberServiceImpl implements MemberService{
 	@Autowired
-	private MemberDAO memberDAO;
+	private MemberDAO2 memberDAO;
 	
 
 	public void insert(MemberVO vo) {

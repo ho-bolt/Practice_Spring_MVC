@@ -32,7 +32,7 @@
 
 				<!-- Nav -->
 					<nav id="nav">
-						<h3>${memberName}님 환영합니다!</h3> <a href="logout.do">로그아웃</a>
+						<h3>${vvv.name}님 환영합니다!</h3> <a href="logout.do">로그아웃</a>
 						<ul>
 							<li><a href="#intro" class="active">글 작성하기</a></li>
 							<li><a href="getMsgList.do">게시글 보러가기</a></li>
@@ -56,9 +56,9 @@
 										<form action="insertMsg.do" method="post">
 											<ul>
 												<li>작성자</li>
-												<li><input type="text" name="writer" ></li>
+												<li><input type="text" name="writer" placeholder="로그인 후 이용해주세요"></li>
 												<li>내용</li>
-												<li><input type="text" name="content" style="height:100px"></li>
+												<li><input type="text" name="content" placeholder="로그인 후 이용해주세요" style="height:100px"></li>
 										
 												<li><input type="submit" value="글 등록" style="margin:10px"></li>
 											</ul>

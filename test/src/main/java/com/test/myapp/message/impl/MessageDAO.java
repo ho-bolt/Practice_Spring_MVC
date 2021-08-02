@@ -1,6 +1,7 @@
 package com.test.myapp.message.impl;
 
 import java.sql.Connection;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -11,13 +12,13 @@ import org.springframework.stereotype.Repository;
 
 import com.test.myapp.common.JDBC;
 import com.test.myapp.message.MessageVO;
+
 @Repository("messageDAO")
 public class MessageDAO {
 	
 	Connection conn=null;
 	PreparedStatement pstmt=null;
 	
-	private MessageDAO messageDAO;
 	
 //	public void insertMessage(MessageVO vo);
 //	public void deleteMessage(MessageVO vo);

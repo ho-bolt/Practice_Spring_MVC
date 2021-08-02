@@ -47,32 +47,34 @@
 
 								<!-- Table -->
 								<section>
-								${v.name }님 게시글 
-										<h2>Msg Table</h2>
+								${vvv.name }님 정보  
+										<h2>MyPage</h2>
 										<div class="table-wrapper">
 										<form action="updateMsg.do" method="post"> 
-										<input type="hidden" value="${v.mid}" name="mid"/>
+										<input type="hidden" value="${vvv.id}" name="id"/>
 											<table>
 												<thead>
 												</thead>
 												<tbody>
 													<tr>
-														<th>글 번호</th>
-														<th>작성자</th>
-														<th>내용</th>
+														<th>아이디</th>
+														<th>비밀번호</th>														
+														<th>이름</th>
+														<th>역할</th>
 													</tr>
 												
 													<tr>
-														<td>${v.mid }</td>
-														<td>${v.writer}</td>
-														<td><input type="text" value="${v.content }" name="content"></td>
+														<td><input type="text" name="id" value="${vvv.id}"></td>
+														<td><input type="password" name="password" value="${vvv.password}"></td>
+														<td><input type="text" name="name" value="${vvv.name}"></td>
+														<td>${vvv.role}</td>
+														
 													</tr>
 														
 												</tbody>
 													
 											</table>
 											<input type="submit" value="수정하기">
-											<a href="deleteMsg.do?mid=${v.mid }">삭제</a>		
 											
 											</form>
 										</div>

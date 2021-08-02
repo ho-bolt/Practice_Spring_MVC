@@ -20,8 +20,6 @@ public class MemberDAO {
 	Connection conn=null;
 	PreparedStatement pstmt=null;
 	
-	@Autowired
-	private JdbcTemplate jdbcTemplate;
 	
 	
 	
@@ -52,7 +50,7 @@ public class MemberDAO {
 	public MemberVO Login(MemberVO vo) {
 			
 		String sql="select * from member where id=? and password=?";
-		System.out.println("로그인 jdbcTemplate dao");
+		System.out.println("로그인  dao");
 		MemberVO data=null;
 		conn=JDBC.getconntection();
 		

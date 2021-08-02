@@ -25,11 +25,15 @@ public class MemberController {
 		MemberVO data=dao.Login(vo);
 		if(data!=null) {
 			//유
-			session.setAttribute("memberName", data.getName());
+//			session.setAttribute("memberName", data.getName());
+//			session.setAttribute("memberId", data.getId());
+//			session.setAttribute("memberPassword", data.getPassword());
+//			session.setAttribute("memberRole", data.getRole());
+			session.setAttribute("vvv", data);
 			return "index.jsp";		
 		}
 		else {
-			return "login.jsp";
+			return "mypage.jsp";
 					
 		}
 	
