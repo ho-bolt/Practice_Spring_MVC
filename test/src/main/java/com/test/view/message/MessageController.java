@@ -3,6 +3,7 @@ package com.test.view.message;
 import java.util.HashMap;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.test.myapp.message.MessageService;
 import com.test.myapp.message.MessageVO;
 import com.test.myapp.message.impl.MessageDAO;
 
@@ -19,45 +21,48 @@ import com.test.myapp.message.impl.MessageDAO;
 @SessionAttributes("msgData")
 public class MessageController {
 	
+	@Autowired
+	private MessageService messageService;
+	//비즈니스 컴포넌트
 	@RequestMapping(value="/insertMsg.do")
-	public String insertMsg(MessageVO vo,MessageDAO dao) throws Exception {  
+	public String insertMsg(MessageVO vo) throws Exception {  //command 객체
 		
 			System.out.println("메세지 등록 컨트롤러");				
-			dao.InsertMessage(vo);		
+			messageService.insertMessage(vo);		//비즈니스 메서드
 			return "getMsgList.do"; //redirect : 
 	}
 	
 	@RequestMapping(value="/deleteMsg.do")
-	public String deleteMsg(MessageVO vo,MessageDAO dao) throws Exception {
+	public String deleteMsg(MessageVO vo) throws Exception {
 
 		System.out.println("삭제 컨트롤러");
 		
-		dao.DeleteMessage(vo);
+		messageService.deleteMessage(vo);
 	
 		return "getMsgList.do";
 	}
 	
 	
 	@RequestMapping(value="/updateMsg.do")
-	public String updateMsg(@ModelAttribute("msgData")MessageVO vo,MessageDAO dao) throws Exception {
+	public String updateMsg(@ModelAttribute("msgData")MessageVO vo) throws Exception {
 		
 		System.out.println("수정 컨트롤러");
 		//jsp view에서 사용자가 입력하지 않은 값에 대해서는 null이 들어온다. 
 		//하지만 상단에 @sessionAttribute를 달고 들어오는 vo에 @modelAttribute를 붙이면
 		//null값이 들어왔을 때 이것을 참고한다.
-		dao.UpdateMessage(vo);
+		messageService.updateMessage(vo);
 		
 		
 		return "getMsgList.do";
 	}
 	
 	@RequestMapping(value="/getMsg.do")
-	public String getMsg(MessageVO vo,MessageDAO dao, Model m) throws Exception {
+	public String getMsg(MessageVO vo, Model m) throws Exception {
 		
 		System.out.println("id값 게시글 보기 ");
 		
 		 
-		 MessageVO v=dao.getMsg(vo);
+		 MessageVO v=messageService.getMsg(vo);
 		 m.addAttribute("msgData",v);
 		
 		 return "getMsg.jsp";

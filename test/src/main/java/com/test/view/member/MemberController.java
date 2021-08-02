@@ -10,19 +10,23 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.test.myapp.member.MemberService;
 import com.test.myapp.member.MemberVO;
 import com.test.myapp.member.impl.MemberDAO;
 
 @Controller
 public class MemberController {
 	
+	@Autowired
+	private MemberService memberService;
+	
 	@RequestMapping(value="/login.do",method=RequestMethod.POST)
-	public String login(MemberVO vo,MemberDAO dao,HttpSession session) throws Exception {
+	public String login(MemberVO vo,HttpSession session) throws Exception {
 	
 		
 		System.out.println("로그인 컨트롤러");
 		
-		MemberVO data=dao.Login(vo);
+		MemberVO data=memberService.Login(vo);
 		if(data!=null) {
 			//유
 //			session.setAttribute("memberName", data.getName());
@@ -33,7 +37,7 @@ public class MemberController {
 			return "index.jsp";		
 		}
 		else {
-			return "mypage.jsp";
+			return "login.jsp";
 					
 		}
 	
@@ -53,11 +57,11 @@ public class MemberController {
 	
 	
 	@RequestMapping(value="/insertMember.do")
-	public String insertMember(MemberVO vo, MemberDAO dao,Model m)  {
+	public String insertMember(MemberVO vo,Model m)  {
 
 			System.out.println("회원 등록중.. 컨트롤러");			
-			dao.InsertMember(vo);
-			vo=dao.Login(vo);
+			memberService.insert(vo);
+			vo=memberService.Login(vo);
 			m.addAttribute("v",vo);
 			return "index.jsp";
 	}

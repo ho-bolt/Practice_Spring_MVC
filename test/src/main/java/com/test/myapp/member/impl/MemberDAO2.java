@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 import com.test.myapp.common.JDBC;
 import com.test.myapp.member.MemberVO;
 
-@Repository("memberDAO")
+@Repository("MemberDAO2")
 public class MemberDAO2 {
 	
 	@Autowired

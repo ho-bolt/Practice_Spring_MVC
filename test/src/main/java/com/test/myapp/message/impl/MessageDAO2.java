@@ -13,7 +13,7 @@ import org.springframework.stereotype.Repository;
 import com.test.myapp.common.JDBC;
 import com.test.myapp.message.MessageVO;
 
-@Repository("messageDAO")
+@Repository("messageDAO2")
 public class MessageDAO2 {
 		
 	
