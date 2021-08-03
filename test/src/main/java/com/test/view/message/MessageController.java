@@ -1,5 +1,6 @@
 package com.test.view.message;
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.List;
 
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.test.myapp.message.MessageService;
@@ -27,7 +29,19 @@ public class MessageController {
 	@RequestMapping(value="/insertMsg.do")
 	public String insertMsg(MessageVO vo) throws Exception {  //command 객체
 		
-			System.out.println("메세지 등록 컨트롤러");				
+			System.out.println("메세지 등록 컨트롤러");	
+			
+			MultipartFile uploadFile=vo.getUploadFile();
+			if(!uploadFile.isEmpty()) {
+				String fileName=uploadFile.getOriginalFilename();
+				//System.out.println(fileName);//pig.png 확장자와 이름까지만 보여준다
+			uploadFile.transferTo(new File("D:\\0615Spring_seo\\resource\\"+fileName));
+			//업로드한 파일을 관리하는 경로를 작성해두면 다운가능 
+			}
+			else {
+				System.out.println("진행안함");
+			}
+			
 			messageService.insertMessage(vo);		//비즈니스 메서드
 			return "getMsgList.do"; //redirect : 
 	}
