@@ -26,6 +26,10 @@ public class MemberController {
 		
 		System.out.println("로그인 컨트롤러");
 		
+		if(vo.getId()==null||vo.getId().equals("")) {
+			throw new IllegalArgumentException("아이디가 입력되지 않았습니다. ");
+		}
+		
 		MemberVO data=memberService.Login(vo);
 		if(data!=null) {
 			//유
