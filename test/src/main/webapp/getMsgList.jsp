@@ -3,6 +3,7 @@
     pageEncoding="UTF-8"%>
     
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+      <%@taglib  uri="http://www.springframework.org/tags" prefix="spring"%>
     
 <!DOCTYPE HTML>
 <!--
@@ -26,7 +27,8 @@
 				<!-- Header -->
 					<header id="header">
 					<a href="index.jsp"><span class="logo"><img src="images/logo.svg" alt="" /></span></a>
-						<h1>게시글 목록들</h1>
+						
+						<h1><spring:message code="message.Msg.msgList.title"/></h1>
 						<p>Spring Project Practice</p>
 					</header>
 
@@ -35,7 +37,7 @@
 
 						<!-- Content -->
 							<section id="content" class="main">
-
+									<a href="getMsgList.do?lang=en"> <spring:message code="message.members.login.language.en" /></a> <a href="getMsgList.do?lang=ko"><spring:message code="message.members.login.language.ko"/></a>
 								<!-- Text -->
 									<section class="MsgList">
 								
@@ -57,7 +59,7 @@
 													</c:forEach>
 												</select>
 												<input type="text" name="searchContent"><!-- 내가 입력한 거 -->
-												<input type="submit" value="검색하기">
+												<input type="submit" value="<spring:message code="message.Msg.msgList.SearchBtn"/>">
 											</td>
 										</tr>
 									
@@ -73,9 +75,9 @@
 												</thead>
 												<tbody>
 													<tr>
-														<th>글 번호</th>
-														<th>작성자</th>
-														<th>내용</th>
+														<th><spring:message code="message.Msg.msgList.Num"/></th>
+														<th><spring:message code="message.Msg.msgList.writer"/></th>
+														<th><spring:message code="message.Msg.msgList.content"/></th>
 													</tr>
 												<c:forEach items="${msgList }" var="v">
 												
@@ -91,55 +93,7 @@
 											</table>
 										</div>
 
-										<h3>Alternate</h3>
-										<div class="table-wrapper">
-											<table class="alt">
-												<thead>
-													<tr>
-														<th>Name</th>
-														<th>Description</th>
-														<th>Price</th>
-													</tr>
-												</thead>
-												<tbody>
-													<tr>
-														<td>Item One</td>
-														<td>Ante turpis integer aliquet porttitor.</td>
-														<td>29.99</td>
-													</tr>
-													<tr>
-														<td>Item Two</td>
-														<td>Vis ac commodo adipiscing arcu aliquet.</td>
-														<td>19.99</td>
-													</tr>
-													<tr>
-														<td>Item Three</td>
-														<td> Morbi faucibus arcu accumsan lorem.</td>
-														<td>29.99</td>
-													</tr>
-													<tr>
-														<td>Item Four</td>
-														<td>Vitae integer tempus condimentum.</td>
-														<td>19.99</td>
-													</tr>
-													<tr>
-														<td>Item Five</td>
-														<td>Ante turpis integer aliquet porttitor.</td>
-														<td>29.99</td>
-													</tr>
-												</tbody>
-												<tfoot>
-													<tr>
-														<td colspan="2"></td>
-														<td>100.00</td>
-													</tr>
-												</tfoot>
-											</table>
-										</div>
-									</section>
-									</section>
-									</div>
-									</div>
+										
 									
 												
 

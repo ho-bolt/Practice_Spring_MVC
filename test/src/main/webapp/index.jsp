@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+        <%@taglib  uri="http://www.springframework.org/tags" prefix="spring"%>
 <!DOCTYPE HTML>
 <!--
 	Stellar by HTML5 UP
@@ -38,7 +39,7 @@
 							<li><a href="getMsgList.do">게시글 보러가기</a></li>
 							<li><a href="mypage.jsp">마이페이지</a></li>
 							<li><a href="#cta">Get Started</a></li>
-							<li><a href="login.jsp">로그인</a></li>
+							<li><a href="login.do">로그인</a></li>
 							<li><a href="join.jsp">회원가입</a></li>
 						</ul>
 					</nav>

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@taglib  uri="http://www.springframework.org/tags" prefix="spring"%><!-- 언어변환 taglib -->
 <!DOCTYPE HTML>
 <!--
 	Stellar by HTML5 UP
@@ -22,7 +23,7 @@
 				<!-- Header -->
 					<header id="header">
 					<a href="index.jsp"><span class="logo"><img src="images/logo.svg" alt="" /></span></a>
-						<h1>로그인</h1>
+						<h2><spring:message code="message.members.login.title"/></h2>
 						<p>Spring Project InsertMember연습 </p>
 					</header>
 
@@ -30,14 +31,18 @@
 					<div id="Join" style="width:50%" align="center">
 
 						<!-- Content -->
+						
+						
+						<a href="login.do?lang=en"> <spring:message code="message.members.login.language.en" /></a> <a href="login.do?lang=ko"><spring:message code="message.members.login.language.ko"/></a>
+						<hr>
 							<section id="Join_Member" class="Join_main" >
 								<form action="login.do" method="post">
-									아이디
+									<spring:message code="message.members.login.id" />
 									<input type="text" name="id" value="${member.id }">
-									비밀번호
+								<spring:message code="message.members.login.password" />
 									<input type="password" name="password" value="${member.password }" >
 									
-									<input type="submit" value="로그인">
+									<input type="submit" value="<spring:message code="message.members.login.loginBtn" />">
 									
 								</form>
 								

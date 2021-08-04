@@ -32,7 +32,35 @@
 		<property name="maxUploadSize" value="100000"/><!-- 필수는 아니지만 안넣으면 -1로 들어감 즉 크기 제한이 없다는 말  -->
 	</bean>
 	
-	
+	<!-- messageSource파일을 읽어야 해서 객체 만들어서 넣어준다. 대상체 -->
+	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basenames">
+			<list>
+			<!-- <value>message.messageSource_en.properties</value>
+					 하지만 컨테이너는 얘가 패기지인지 확장자인지 구분을 못함
+					 언어처리 하는 확장자는 무조건 properties이다. 따라서 그냥 생략한다.  
+					그냥 아래처럼 적으면 됨
+			 -->
+				<value>message.messageSource</value>
+			</list>
+		</property>
+   </bean>
+   <!-- 위의 대상체를 서비스해줄 친구 -->
+   <bean id="localReslover" class="org.springframework.web.servlet.i18n.SessionLocaleResolver"></bean>
+   <mvc:interceptors>
+   	<bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
+   		<property name="paramName" value="Lang"/>
+   	</bean>
+   </mvc:interceptors>
+   
+   <!-- 다국어 처리를 한다.  -->
+	<bean id="localeResolver" class="org.springframework.web.servlet.i18n.SessionLocaleResolver"></bean>
+	<mvc:interceptors>
+		<bean
+			class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
+			<property name="paramName" value="lang" />
+		</bean>
+	</mvc:interceptors>
 	
 	
 	
