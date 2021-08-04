@@ -19,7 +19,6 @@ public class MessageDAO {
 	Connection conn=null;
 	PreparedStatement pstmt=null;
 	
-	
 //	public void insertMessage(MessageVO vo);
 //	public void deleteMessage(MessageVO vo);
 //	public void updateMessage(MessageVO vo);

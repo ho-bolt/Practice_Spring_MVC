@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -17,9 +18,10 @@ import com.test.myapp.member.MemberVO;
 @Repository("memberDAO")
 public class MemberDAO {
 	
-	Connection conn=null;
-	PreparedStatement pstmt=null;
 	
+	
+		Connection conn=null;	
+		PreparedStatement pstmt=null;
 	
 	
 	
@@ -82,19 +84,9 @@ public class MemberDAO {
 //		return jdbcTemplate.queryForObject(sql,args,new MemberRowMapper());
 	}
 	
-	
-	class MemberRowMapper implements RowMapper{
 
-		public Object mapRow(ResultSet rs, int rowNum) throws SQLException {
-			MemberVO data=new MemberVO();
-			data.setId(rs.getString("id"));
-			data.setPassword(rs.getString("password"));
-			data.setName(rs.getString("name"));
-			data.setRole(rs.getString("role"));		
-			return data;
-		}
 		
-	}
+	
 
 		
 	

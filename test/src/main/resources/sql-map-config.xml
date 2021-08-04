@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+  <properties resource="db.properties" /> 
+   <!-- 이 관련 설정은 container에서 가지고 온다. 얘보고 연결한다.  -->
+   
+   <typeAliases><!-- 별칭을 붙인다.  무엇을 다룰 지 정해준다. --> 
+     	<typeAlias type="com.test.myapp.message.MessageVO" alias="message"/><!-- com.seo.app.board.BoardVo를 줄여서 board로 한다.  -->
+   </typeAliases>
+   
+   <!-- db.properties에서 받아온 값을 여기에 넣어준다. -->
+    <environments default="development">
+      <environment id="development">
+         <transactionManager type="JDBC" />
+         <dataSource type="POOLED">
+            <property name="driver" value="${jdbc.driverClassName}" />
+            <property name="url" value="${jdbc.url}" />
+            <property name="username" value="${jdbc.username}" />
+            <property name="password" value="${jdbc.password}" />
+         </dataSource>
+      </environment>
+   </environments>
+   
+   
+   <mappers>
+      <mapper resource="mapping/message-mapping.xml" /><!-- connection pool을 간략하게 해줌  -->
+      <!-- mybatis 메인  -->
+   </mappers>
+</configuration>

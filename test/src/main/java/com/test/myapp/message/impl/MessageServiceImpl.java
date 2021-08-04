@@ -12,7 +12,7 @@ import com.test.myapp.message.MessageVO;
 public class MessageServiceImpl implements MessageService{
 	
 	@Autowired
-	private MessageDAO2 messageDAO;
+	private MessageDAO3 messageDAO;
 	
 	public void deleteMessage(MessageVO vo) {
 		messageDAO.DeleteMessage(vo);

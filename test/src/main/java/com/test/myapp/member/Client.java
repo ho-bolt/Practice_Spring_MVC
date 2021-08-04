@@ -8,10 +8,24 @@ import org.springframework.context.support.GenericXmlApplicationContext;
 import com.test.myapp.message.MessageService;
 import com.test.myapp.message.MessageVO;
 import com.test.myapp.message.impl.MessageDAO;
+import com.test.myapp.message.impl.MessageDAO3;
 
 public class Client {
 	public static void main(String[] args) {
 		
+		MessageDAO3 messageDAO3=new MessageDAO3();
+		MessageVO vo=new MessageVO();
+		
+		vo.setWriter("어려웡");
+		vo.setContent("마이바티스");
+		messageDAO3.InsertMessage(vo);
+		
+		System.out.println("확인");
+		
+			
+		
+		/*
+		 * 
 		AbstractApplicationContext factory=new GenericXmlApplicationContext("applicationContext.xml");
 		
 		MessageService ms=(MessageService)factory.getBean("MessageService"); //MessageServiceImpl에 @Service(MessageService)를 달아주었다. 여기서 getBean으로 얘를 쓴다고 말해준다.
@@ -31,5 +45,6 @@ public class Client {
 		
 		
 		factory.close();
+		*/
 	}
 }

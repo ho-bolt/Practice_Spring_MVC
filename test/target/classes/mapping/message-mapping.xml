@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- java.util.Date -->
+
+
+<mapper namespace="MessageDAO3"><!-- 최상위 루트 엘리먼트  -->
+
+
+	<!-- id값이 같은 파일 내에 있으면 중복되면 안된다.  -->
+   <select id="getMsg" parameterType="message" resultType="message"><!-- 원래는 내가 사용할 친구의 주소를 다 써야한다. com.seo.app.이렇게 
+   그러나 간단하게 하기 위해 별칭 board를 사용해서 쓴다. 이 별칭은 sql-map-config 에서 설정함 -->
+	select * from message where mid=#{mid}	
+	<!-- 조건절에는 2개 이상의 값이 나오면 에러가 뜨기 때문에, pk를 걸어야한다.  즉 리턴하는 친구가 오직 1개여야 한다. -->
+	
+   </select>
+
+<!-- 동적 SQL문  사실 이걸 사용하기 위해 mybatis를 사용한다. -->
+   <select id="getMsgList" parameterType="message" resultType="message">
+	select * from message where writer like '%' ||#{searchContent}||'%' order by mid desc
+	</select>
+  
+   
+   
+   <insert id="insertMessage" parameterType="message" >
+     insert into message (mid,writer,content) values((select nvl(max(mid),0)+1 from message),#{writer},#{content})
+   </insert>
+
+   <update id="updateMessage" parameterType="message" >
+    update message set content=#{content} where id=#{id}
+   </update>
+
+   <delete id="deleteMessage" parameterType="message" >
+     delete from message where mid=${mid}
+   </delete>
+
+</mapper>
