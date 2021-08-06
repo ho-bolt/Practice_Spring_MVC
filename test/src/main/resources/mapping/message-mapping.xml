@@ -43,7 +43,7 @@
    </insert>
 
    <update id="updateMessage" parameterType="message" >
-    update message set content=#{content} where id=#{id}
+    update message set content=#{content} where mid=#{mid}
    </update>
 
    <delete id="deleteMessage" parameterType="message" >
