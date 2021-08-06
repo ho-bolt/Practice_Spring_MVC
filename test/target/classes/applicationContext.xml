@@ -27,4 +27,15 @@
    		<property name="dataSource" ref="ds"/>	
 		</bean>
 		
+		<!-- dataSource필요한데 위에서 객체 이름 ds같게 해서 쓴다.  -->
+		<bean id="sessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+			<property name="dataSource" ref="ds"/>
+			<property name="configLocation" value="classpath:sql-map-config.xml"/>
+		</bean>
+		
+		<bean class="org.mybatis.spring.SqlSessionTemplate">
+				<constructor-arg ref="sessionFactory"></constructor-arg><!-- setter가 없어 생성자를 주입한다.  -->
+		</bean>
+		
+		
 	</beans>

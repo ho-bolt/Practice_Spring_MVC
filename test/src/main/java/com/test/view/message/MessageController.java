@@ -27,22 +27,26 @@ public class MessageController {
 	private MessageService messageService;
 	//비즈니스 컴포넌트
 	@RequestMapping(value="/insertMsg.do")
-	public String insertMsg(MessageVO vo) throws Exception {  //command 객체
+	public String insertMsg(MessageVO vo,Model m) throws Exception {  //command 객체
 		
+		File file=null;
 			System.out.println("메세지 등록 컨트롤러");	
-			
+			String fileName="";
 			MultipartFile uploadFile=vo.getUploadFile();
 			if(!uploadFile.isEmpty()) {
-				String fileName=uploadFile.getOriginalFilename();
+				 fileName=uploadFile.getOriginalFilename();
+				 file=new File("D:\\0615Spring_seo\\resource"+fileName);
+				 //file객체를 바이트 배열로 변환
 				//System.out.println(fileName);//pig.png 확장자와 이름까지만 보여준다
-			uploadFile.transferTo(new File("D:\\0615Spring_seo\\resource\\"+fileName));
+			uploadFile.transferTo(new File("D:\\0615Spring_seo\\resource"+fileName));
 			//업로드한 파일을 관리하는 경로를 작성해두면 다운가능 
 			}
 			else {
 				System.out.println("진행안함");
 			}
-			
-			messageService.insertMessage(vo);		//비즈니스 메서드
+			System.out.println("파일업로드"+fileName);
+			messageService.insertMessage(vo);	
+			m.addAttribute("seo", fileName);//비즈니스 메서드
 			return "getMsgList.do"; //redirect : 
 	}
 	
@@ -115,14 +119,13 @@ public class MessageController {
 		if(vo.getSearch()==null) {
 			vo.setSearch("writer");
 		}
-		else if(vo.getContent()==null) {
-			vo.setContent("content");
+		else if(vo.getSearchContent()==null) {
+			vo.setSearchContent("");
 		}
 		 List<MessageVO> msgList=messageService.getMsgList(vo);
 		 m.addAttribute("msgList", msgList);
-		 
+		 System.out.println(msgList);
 		 return "getMsgList.jsp";
-	
 	}
 	
 }

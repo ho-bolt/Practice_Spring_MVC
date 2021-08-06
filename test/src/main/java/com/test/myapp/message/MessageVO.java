@@ -9,7 +9,8 @@ public class MessageVO {
 	private String writer;
 	private String content;
 	private String search;
-	private String searchContent;//검색기능 수행시 컨테이너가 command객체를 생성, 생생된 객체에 값 추출 
+	private String searchContent;
+	//검색기능 수행시 컨테이너가 command객체를 생성, 생생된 객체에 값 추출 
 	//만약,dao에서 @RequestParam을 사용하지 않는다면, 이걸로 넘길 수도 있다. 
 	private MultipartFile uploadFile; //setter로 값을 넘길때, 인자로 전달할 uploadFile이 있어야 한다. 
 	//즉 이 객체가 있어야 함으로, applicationContext.xml에서 객체를 만드는 데 재료가 필요하다!

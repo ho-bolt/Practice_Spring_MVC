@@ -16,5 +16,6 @@ create table member(
 
 insert into message(mid,writer,content) values(1,'me','whatsup'); 
 select * from message;
-select * from MEMBER;네 안들어왔어요
+select * from MEMBER;
 drop table member;
+CREATE SEQUENCE message_SEQ START WITH 1 INCREMENT BY 1;

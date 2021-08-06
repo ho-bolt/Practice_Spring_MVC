@@ -119,8 +119,6 @@ public class MessageDAO {
 		conn=JDBC.getconntection();
 		System.out.println("메세지 목록 불러오기 dao");
 		List<MessageVO> datas=new ArrayList();
-		
-	
 		try {
 			
 			if(vo.getSearch().equals("writer")) {
