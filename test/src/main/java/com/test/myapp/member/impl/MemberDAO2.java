@@ -8,10 +8,9 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
-import com.test.myapp.common.JDBC;
 import com.test.myapp.member.MemberVO;
 
-@Repository("MemberDAO2")
+@Repository("memberDAO2")
 public class MemberDAO2 {
 	
 	@Autowired

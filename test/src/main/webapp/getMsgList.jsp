@@ -79,7 +79,6 @@
 														<th><spring:message code="message.Msg.msgList.Num"/></th>
 														<th><spring:message code="message.Msg.msgList.writer"/></th>
 														<th><spring:message code="message.Msg.msgList.content"/></th>
-														<th><spring:message code="message.Msg.msgList.picture"/></th>
 													</tr>
 												<c:forEach items="${msgList }" var="v">
 												
@@ -87,7 +86,6 @@
 														<td><a href="getMsg.do?mid=${v.mid }">${v.mid }</a></td>
 														<td>${v.writer}</td>
 														<td>${v.content }</td>
-														<td><img src="images/${seo}" alt="파일업로드"></td>
 													</tr>
 													</c:forEach>
 													

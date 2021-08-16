@@ -5,22 +5,21 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.test.myapp.member.MemberService;
 import com.test.myapp.member.MemberVO;
-import com.test.myapp.member.impl.MemberDAO;
+import com.test.myapp.member.impl.MemberServiceImpl;
 
 @Controller
 public class MemberController {
 	
 	@Autowired
-	private MemberService memberService;
+	private MemberServiceImpl memberService;
 	
-	@RequestMapping(value="/login.do",method=RequestMethod.POST)
+	@RequestMapping("/login.do")
 	public String login(MemberVO vo,HttpSession session) throws Exception {
 	
 		
@@ -32,11 +31,11 @@ public class MemberController {
 		
 		MemberVO data=memberService.Login(vo);
 		if(data!=null) {
-			//유
-//			session.setAttribute("memberName", data.getName());
-//			session.setAttribute("memberId", data.getId());
-//			session.setAttribute("memberPassword", data.getPassword());
-//			session.setAttribute("memberRole", data.getRole());
+			System.out.println(data);
+			//session.setAttribute("memberName", data.getName());
+			//session.setAttribute("memberId", data.getId());  
+			//session.setAttribute("memberPassword", data.getPassword());
+			//session.setAttribute("memberRole", data.getRole());
 			session.setAttribute("vvv", data);
 			return "index.jsp";		
 		}
@@ -58,7 +57,7 @@ public class MemberController {
 		return "login.jsp";
 	
 	}
-	
+
 	
 	@RequestMapping(value="/insertMember.do")
 	public String insertMember(MemberVO vo,Model m)  {

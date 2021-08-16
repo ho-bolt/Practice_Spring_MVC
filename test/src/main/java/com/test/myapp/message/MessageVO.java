@@ -6,6 +6,7 @@ public class MessageVO {
 
 
 	private int mid;
+	private String title;
 	private String writer;
 	private String content;
 	private String search;
@@ -19,6 +20,12 @@ public class MessageVO {
 	
 	public MultipartFile getUploadFile() {
 		return uploadFile;
+	}
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
 	}
 	public void setUploadFile(MultipartFile uploadFile) {
 		this.uploadFile = uploadFile;

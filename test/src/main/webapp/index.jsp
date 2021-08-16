@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
         <%@taglib  uri="http://www.springframework.org/tags" prefix="spring"%>
+ 		<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE HTML>
 <!--
 	Stellar by HTML5 UP
@@ -21,9 +23,6 @@
 			<div id="wrapper">
 
 				<!-- Header -->
-				
-				
-				
 					<header id="header" class="alt">
 						<span class="logo"><img src="images/logo.svg" alt="" /></span>
 						<h1>Stellar</h1>
@@ -32,17 +31,19 @@
 					</header>
 
 				<!-- Nav -->
+			
+			
 					<nav id="nav">
 						<h3>${vvv.name}님 환영합니다!</h3> <a href="logout.do">로그아웃</a>
 						<ul>
-							<li><a href="#intro" class="active">글 작성하기</a></li>
+							<li><a href="write.jsp">글 작성하기</a></li>
 							<li><a href="getMsgList.do">게시글 보러가기</a></li>
 							<li><a href="mypage.jsp">마이페이지</a></li>
-							<li><a href="#cta">Get Started</a></li>
 							<li><a href="login.do">로그인</a></li>
-							<li><a href="join.jsp">회원가입</a></li>
+					<li><a href="join.jsp">회원가입</a></li>
 						</ul>
 					</nav>
+			
 
 				<!-- Main -->
 					<div id="main">
@@ -52,24 +53,13 @@
 								<div class="spotlight">
 									<div class="content">
 										<header class="major">
-											<h2>새로운 
-											글 작성하기</h2>
+											<h2>Ipsum sed adipiscing</h2>
 										</header>
-										<form action="insertMsg.do" method="post" enctype="multipart/form-data">
-											<ul>
-												<li>작성자</li>
-												<li><input type="text" name="writer" placeholder="로그인 후 이용해주세요"></li>
-												<li>내용</li>
-												<li><input type="text" name="content" placeholder="로그인 후 이용해주세요" style="height:100px"></li>
-												<li>파일 업로드</li>
-												<li><input type="file" name="uploadFile"></li>
-												<li><input type="submit" value="글 등록" style="margin:10px"></li>
-											</ul>
-									
-										</form>
-										
-										
+										<p>Sed lorem ipsum dolor sit amet nullam consequat feugiat consequat magna
+										adipiscing magna etiam amet veroeros. Lorem ipsum dolor tempus sit cursus.
+										Tempus nisl et nullam lorem ipsum dolor sit amet aliquam.</p>
 										<ul class="actions">
+											<li><a href="generic.jsp" class="button">Learn More</a></li>
 										</ul>
 									</div>
 									<span class="image"><img src="images/pic01.jpg" alt="" /></span>
@@ -100,20 +90,72 @@
 								</ul>
 								<footer class="major">
 									<ul class="actions special">
-										<li><a href="generic.jsp" class="button">Learn More</a></li>
+										<li><a href="generic.html" class="button">Learn More</a></li>
 									</ul>
 								</footer>
 							</section>
 
 						<!-- Second Section -->
-							
+							<section id="second" class="main special">
+								<header class="major">
+									<h2>Ipsum consequat</h2>
+									<p>Donec imperdiet consequat consequat. Suspendisse feugiat congue<br />
+									posuere. Nulla massa urna, fermentum eget quam aliquet.</p>
+								</header>
+								<ul class="statistics">
+									<li class="style1">
+										<span class="icon solid fa-code-branch"></span>
+										<strong>5,120</strong> Etiam
+									</li>
+									<li class="style2">
+										<span class="icon fa-folder-open"></span>
+										<strong>8,192</strong> Magna
+									</li>
+									<li class="style3">
+										<span class="icon solid fa-signal"></span>
+										<strong>2,048</strong> Tempus
+									</li>
+									<li class="style4">
+										<span class="icon solid fa-laptop"></span>
+										<strong>4,096</strong> Aliquam
+									</li>
+									<li class="style5">
+										<span class="icon fa-gem"></span>
+										<strong>1,024</strong> Nullam
+									</li>
+								</ul>
+								<p class="content">Nam elementum nisl et mi a commodo porttitor. Morbi sit amet nisl eu arcu faucibus hendrerit vel a risus. Nam a orci mi, elementum ac arcu sit amet, fermentum pellentesque et purus. Integer maximus varius lorem, sed convallis diam accumsan sed. Etiam porttitor placerat sapien, sed eleifend a enim pulvinar faucibus semper quis ut arcu. Ut non nisl a mollis est efficitur vestibulum. Integer eget purus nec nulla mattis et accumsan ut magna libero. Morbi auctor iaculis porttitor. Sed ut magna ac risus et hendrerit scelerisque. Praesent eleifend lacus in lectus aliquam porta. Cras eu ornare dui curabitur lacinia.</p>
+								<footer class="major">
+									<ul class="actions special">
+										<li><a href="generic.html" class="button">Learn More</a></li>
+									</ul>
+								</footer>
+							</section>
+
+						<!-- Get Started -->
+							<section id="cta" class="main special">
+								<header class="major">
+									<h2>Congue imperdiet</h2>
+									<p>Donec imperdiet consequat consequat. Suspendisse feugiat congue<br />
+									posuere. Nulla massa urna, fermentum eget quam aliquet.</p>
+								</header>
+								<footer class="major">
+									<ul class="actions special">
+										<li><a href="generic.html" class="button primary">Get Started</a></li>
+										<li><a href="generic.html" class="button">Learn More</a></li>
+									</ul>
+								</footer>
+							</section>
+
+					</div>
+
 				<!-- Footer -->
 					<footer id="footer">
 						<section>
 							<h2>Aliquam sed mauris</h2>
 							<p>Sed lorem ipsum dolor sit amet et nullam consequat feugiat consequat magna adipiscing tempus etiam dolore veroeros. eget dapibus mauris. Cras aliquet, nisl ut viverra sollicitudin, ligula erat egestas velit, vitae tincidunt odio.</p>
 							<ul class="actions">
-								<li><a href="generic.jsp" class="button">Learn More</a></li>
+								<li><a href="generic.html" class="button">Learn More</a></li>
 							</ul>
 						</section>
 						<section>

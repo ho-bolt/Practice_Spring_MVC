@@ -6,20 +6,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import org.apache.ibatis.session.SqlSession;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import com.test.myapp.common.JDBC;
 import com.test.myapp.member.MemberVO;
-
 @Repository("memberDAO")
 public class MemberDAO {
-	
-	
-	
+
 		Connection conn=null;	
 		PreparedStatement pstmt=null;
 	
@@ -53,6 +46,7 @@ public class MemberDAO {
 			
 		String sql="select * from member where id=? and password=?";
 		System.out.println("로그인  dao");
+		System.out.println("확인");
 		MemberVO data=null;
 		conn=JDBC.getconntection();
 		

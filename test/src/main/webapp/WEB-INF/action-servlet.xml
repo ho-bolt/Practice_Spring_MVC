@@ -45,6 +45,8 @@
 			</list>
 		</property>
    </bean>
+   
+   
    <!-- 위의 대상체를 서비스해줄 친구 -->
    <bean id="localReslover" class="org.springframework.web.servlet.i18n.SessionLocaleResolver"></bean>
    <mvc:interceptors>
@@ -56,8 +58,7 @@
    <!-- 다국어 처리를 한다.  -->
 	<bean id="localeResolver" class="org.springframework.web.servlet.i18n.SessionLocaleResolver"></bean>
 	<mvc:interceptors>
-		<bean
-			class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
+		<bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
 			<property name="paramName" value="lang" />
 		</bean>
 	</mvc:interceptors>

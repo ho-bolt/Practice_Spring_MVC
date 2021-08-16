@@ -12,7 +12,7 @@
    <listener><!-- 컴퓨터가 동작하면 applicationContext.xml을 볼 수 있도록 해줌 --> 
       <listener-class>
          org.springframework.web.context.ContextLoaderListener
-      </listener-class> applicationContex  t.xml을 미리 읽는다
+      </listener-class> <!-- applicationContext.xml을 미리 읽는다 -->
    </listener>
   
 	<filter>

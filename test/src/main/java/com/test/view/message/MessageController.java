@@ -31,22 +31,21 @@ public class MessageController {
 		
 		File file=null;
 			System.out.println("메세지 등록 컨트롤러");	
-			String fileName="";
-			MultipartFile uploadFile=vo.getUploadFile();
-			if(!uploadFile.isEmpty()) {
-				 fileName=uploadFile.getOriginalFilename();
-				 file=new File("D:\\0615Spring_seo\\resource"+fileName);
-				 //file객체를 바이트 배열로 변환
-				//System.out.println(fileName);//pig.png 확장자와 이름까지만 보여준다
-			uploadFile.transferTo(new File("D:\\0615Spring_seo\\resource"+fileName));
-			//업로드한 파일을 관리하는 경로를 작성해두면 다운가능 
-			}
-			else {
-				System.out.println("진행안함");
-			}
-			System.out.println("파일업로드"+fileName);
+//			String fileName="";
+//			MultipartFile uploadFile=vo.getUploadFile();
+//			if(!uploadFile.isEmpty()) {
+//				 fileName=uploadFile.getOriginalFilename();
+//				 file=new File("D:\\0615Spring_seo\\resource"+fileName);
+//				 //file객체를 바이트 배열로 변환
+//				//System.out.println(fileName);//pig.png 확장자와 이름까지만 보여준다
+//			uploadFile.transferTo(new File("D:\\0615Spring_seo\\resource"+fileName));
+//			//업로드한 파일을 관리하는 경로를 작성해두면 다운가능 
+//			}
+//			else {
+//				System.out.println("진행안함");
+//			}
+//			System.out.println("파일업로드"+fileName);
 			messageService.insertMessage(vo);	
-			m.addAttribute("seo", fileName);//비즈니스 메서드
 			return "getMsgList.do"; //redirect : 
 	}
 	
