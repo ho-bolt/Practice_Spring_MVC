@@ -10,7 +10,7 @@ import com.test.myapp.member.MemberVO;
 public class MemberServiceImpl implements MemberService{
 	
 	@Autowired
-	private MemberDAO memberDAO;
+	private MemberDAO2 memberDAO;
 	
 
 	public void insert(MemberVO vo) {
