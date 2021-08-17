@@ -75,7 +75,6 @@
 								</div>
 							</section>
 
-						<!-- First Section -->
 
 						<!-- Second Section -->
 							<section id="second" class="main special">
