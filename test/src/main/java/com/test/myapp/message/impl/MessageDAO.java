@@ -29,10 +29,10 @@ public class MessageDAO {
 	public void InsertMessage(MessageVO vo) {
 		conn=JDBC.getconntection();
 		System.out.println("메세지 삽입");		
-		String sql="insert into message (mid,writer,content) values((select nvl(max(mid),0)+1 from message),?,?,?)";
+		String sql="insert into message (mid,title,content) values((select nvl(max(mid),0)+1 from message),?,?,?)";
 		try {
 			pstmt=conn.prepareStatement(sql);
-			pstmt.setString(1, vo.getWriter());
+			pstmt.setString(1, vo.getTitle());
 			pstmt.setString(2, vo.getContent());
 			pstmt.executeUpdate();
 			
@@ -98,7 +98,7 @@ public class MessageDAO {
 			if(rs.next()) {
 				data=new MessageVO();
 				data.setMid(rs.getInt("mid"));
-				data.setWriter(rs.getString("writer"));
+				data.setWriter(rs.getString("title"));
 				data.setContent(rs.getString("content"));
 			}
 			
@@ -115,14 +115,14 @@ public class MessageDAO {
 	public List<MessageVO> getMsgList(MessageVO vo){
 //		String sql="select * from message order by mid desc";
 //		String sql2="select * from message order by mid desc";
-		String sql="select * from message where writer like '%'||?||'%' order by mid desc";			
+		String sql="select * from message where title like '%'||?||'%' order by mid desc";			
 	    String sql2="select * from message where content like '%'||?||'%' order by mid desc";	
 		conn=JDBC.getconntection();
 		System.out.println("메세지 목록 불러오기 dao");
 		List<MessageVO> datas=new ArrayList();
 		try {
 			
-			if(vo.getSearch().equals("writer")) {
+			if(vo.getSearch().equals("title")) {
 				pstmt=conn.prepareStatement(sql);				
 			}
 			else {
@@ -133,7 +133,7 @@ public class MessageDAO {
 			while(rs.next()) {
 				MessageVO data=new MessageVO();
 				data.setMid(rs.getInt("mid"));
-				data.setWriter(rs.getString("writer"));
+				data.setWriter(rs.getString("title"));
 				data.setContent(rs.getString("content"));
 				datas.add(data);
 			}
@@ -149,7 +149,7 @@ public class MessageDAO {
 	}
 	public int getNext() {
 		
-		String sql="SELECT mid FROM message ORDER BY midDESC";
+		String sql="SELECT mid FROM message ORDER BY mid DESC";
 		try {
 			PreparedStatement pstmt=conn.prepareStatement(sql);
 			rs=pstmt.executeQuery();

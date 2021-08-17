@@ -39,8 +39,8 @@
 										</header>
 										<form action="insertMsg.do" method="post" enctype="multipart/form-data">
 											<ul>
-												<li>작성자</li>
-												<li><input type="text" name="writer" placeholder="로그인 후 이용해주세요"></li>
+												<li>제목</li>
+												<li><input type="text" name="title"></li>
 												<li>내용</li>
 												<li><textarea name="content" placeholder="내용" maxlength="2048px" style="height:300px"></textarea></li>
 												<li><input type="submit" value="글 등록" style="margin:10px"></li>

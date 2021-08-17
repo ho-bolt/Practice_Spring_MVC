@@ -63,7 +63,7 @@
 												
 													<tr>
 														<td>${msgData.mid }</td>
-														<td>${msgData.writer}</td>
+														<td>${msgData.title}</td>
 														<td><input type="text" value="${msgData.content }" name="content"></td>
 													</tr>
 														

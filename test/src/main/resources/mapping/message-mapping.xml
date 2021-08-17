@@ -9,7 +9,7 @@
 	<resultMap type="message" id="message">
 		<id property="mid" column="mid" />
 			
-		<result property="writer" column="writer" />
+		<result property="title" column="title" />
 		<result property="content" column="content" />
 	</resultMap>
 	
@@ -26,8 +26,8 @@
 
    <select id="getMsgList" parameterType="message" resultType="message">
   	 SELECT * FROM MESSAGE where 1=1
-  	 <if test="search=='writer'">
-  	and writer like '%'||#{searchContent}||'%'
+  	 <if test="search=='title'">
+  	and title like '%'||#{searchContent}||'%'
   	 </if>
   	 <if test="searchContent=='content'">
   	 and content like '%'||#{searchContent||'%'
@@ -39,7 +39,7 @@
    
   
    <insert id="insertMessage" parameterType="message" >
-     insert into message (mid,writer,content) values((select nvl(max(mid),0)+1 from message),#{writer},#{content})
+     insert into message (mid,title,content) values((select nvl(max(mid),0)+1 from message),#{title},#{content})
    </insert>
 
    <update id="updateMessage" parameterType="message" >

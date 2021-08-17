@@ -23,7 +23,7 @@ public class MessageDAO2 {
 	
 	public void InsertMessage(MessageVO vo) {
 		System.out.println("메세지 삽입 jdbctemplate");		
-		String sql="insert into message (mid,writer,content) values((select nvl(max(mid),0)+1 from message),?,?)";
+		String sql="insert into message (mid,title,content) values((select nvl(max(mid),0)+1 from message),?,?)";
 			jdbctemplate.update(sql,vo.getWriter(),vo.getContent());
 	}
 	public void DeleteMessage(MessageVO vo) {
@@ -53,13 +53,13 @@ public class MessageDAO2 {
 	}
 	
 	public List<MessageVO> getMsgList(MessageVO vo){
-		String sql="select * from message where writer like '%'||?||'%' order by mid desc";			
+		String sql="select * from message where title like '%'||?||'%' order by mid desc";			
 	    String sql2="select * from message where content like '%'||?||'%' order by mid desc";
 		System.out.println("메세지 목록 불러오기 dao jdbctemplate");
 		
 		Object []args= {vo.getSearchContent()};
 		
-		if(vo.getSearch().equals("writer")) {
+		if(vo.getSearch().equals("title")) {
 			return jdbctemplate.query(sql, args,new MessageRowMapper());		
 		}
 		else {
@@ -72,7 +72,7 @@ public class MessageDAO2 {
 		public MessageVO mapRow(ResultSet rs, int rowNum) throws SQLException {
 			MessageVO data=new MessageVO();
 			data.setMid(rs.getInt("mid"));
-			data.setWriter(rs.getString("writer"));
+			data.setWriter(rs.getString("title"));
 			data.setContent(rs.getString("content"));
 		
 			return data;

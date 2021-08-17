@@ -77,14 +77,14 @@
 												<tbody>
 													<tr>
 														<th><spring:message code="message.Msg.msgList.Num"/></th>
-														<th><spring:message code="message.Msg.msgList.writer"/></th>
+														<th><spring:message code="message.Msg.msgList.title"/></th>
 														<th><spring:message code="message.Msg.msgList.content"/></th>
 													</tr>
 												<c:forEach items="${msgList }" var="v">
 												
 													<tr>
 														<td><a href="getMsg.do?mid=${v.mid }">${v.mid }</a></td>
-														<td>${v.writer}</td>
+														<td>${v.title}</td>
 														<td>${v.content }</td>
 													</tr>
 													</c:forEach>

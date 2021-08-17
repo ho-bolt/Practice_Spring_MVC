@@ -1,7 +1,7 @@
 
 create table message(
 	mid int primary key,
-	writer varchar(30),
+	title varchar(30),
 	content varchar(100)
 	
 	
@@ -14,8 +14,10 @@ create table member(
  	role varchar(30)
 );
 
-insert into message(mid,writer,content) values(1,'me','whatsup'); 
+insert into message(mid,title,content) values(1,'me','whatsup'); 
 select * from message;
 select * from MEMBER;
 drop table member;
+drop table message;
+
 CREATE SEQUENCE message_SEQ START WITH 1 INCREMENT BY 1;

@@ -88,7 +88,7 @@ public class MessageController {
 	@ModelAttribute("resultMap")//검색 메소드 resultMap이라고 이름 붙임 
 	public HashMap<String, String> searchMap() {
 		HashMap<String, String> map=new HashMap<String, String>();
-		map.put("작성자", "writer");
+		map.put("제목", "title");
 		map.put("내용", "content");
 		return map;
 	}
@@ -116,7 +116,7 @@ public class MessageController {
 		System.out.println("메세지 목록 출력중 컨트롤러 ");
 		//검색하지 않았을 때도 필요하다
 		if(vo.getSearch()==null) {
-			vo.setSearch("writer");
+			vo.setSearch("title");
 		}
 		else if(vo.getSearchContent()==null) {
 			vo.setSearchContent("");
