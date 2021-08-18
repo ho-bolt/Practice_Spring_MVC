@@ -21,6 +21,7 @@
 
 				<!-- Header -->
 					<header id="header">
+						<a href="index.jsp"><span class="logo"><img src="images/logo.svg" alt="" /></span></a>
 						<h1>Elements</h1>
 						<p>Ipsum dolor sit amet nullam</p>
 					</header>

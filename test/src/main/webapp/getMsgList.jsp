@@ -27,8 +27,7 @@
 
 				<!-- Header -->
 					<header id="header">
-					<a href="index.jsp"><span class="logo"><img src="images/logo.svg" alt="" /></span></a>
-						
+							<a href="index.jsp"><span class="logo"><img src="images/logo.svg" alt="" /></span></a>
 						<h1><spring:message code="message.Msg.msgList.title1"/></h1>
 						<p>Spring Project Practice</p>
 					</header>
