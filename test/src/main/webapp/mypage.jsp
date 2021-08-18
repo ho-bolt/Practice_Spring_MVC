@@ -50,7 +50,7 @@
 								${vvv.name }님 정보  
 										<h2>MyPage</h2>
 										<div class="table-wrapper">
-										<form action="updateMsg.do" method="post"> 
+										<form action="updateMypage.do" method="post"> 
 										<input type="hidden" value="${vvv.id}" name="id"/>
 											<table>
 												<thead>
@@ -65,13 +65,12 @@
 												
 													<tr>
 														<td>${vvv.id}</td>
-														<td><input type="password" name="password" value="${vvv.password}"></td>
-														<td><input type="text" name="name" value="${vvv.name}"></td>
+														<td>${vvv.password}</td>
+														<td>${vvv.name}</td>
 														<td>${vvv.role}</td>
 													</tr>
 												</tbody>
 											</table>
-											<input type="submit" value="수정하기">
 											
 											</form>
 										</div>

@@ -2,6 +2,7 @@
 create table message(
 	mid int primary key,
 	title varchar(30),
+	 
 	content varchar(100)
 	
 	

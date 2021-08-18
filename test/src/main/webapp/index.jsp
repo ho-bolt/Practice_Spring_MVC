@@ -26,8 +26,7 @@
 					<header id="header" class="alt">
 						<a href="index.jsp"><span class="logo"><img src="images/logo.svg" alt="" /></span></a>
 						<h1>Stellar</h1>
-						<p>spring mvc framework 연습 <br />
-						built by <a href="https://twitter.com/ajlkn">@ajlkn</a> for <a href="https://html5up.net">HTML5 UP</a>.</p>
+						<h2>spring mvc framework 연습 <br /></h2>
 					</header>
 
 				<!-- Nav -->
@@ -74,23 +73,6 @@
 									<span class="image"><img src="images/pic01.jpg" alt="" /></span>
 								</div>
 							</section>
-
-
-						<!-- Get Started -->
-							<section id="cta" class="main special">
-								<header class="major">
-									<h2>Congue imperdiet</h2>
-									<p>Donec imperdiet consequat consequat. Suspendisse feugiat congue<br />
-									posuere. Nulla massa urna, fermentum eget quam aliquet.</p>
-								</header>
-								<footer class="major">
-									<ul class="actions special">
-										<li><a href="generic.html" class="button primary">Get Started</a></li>
-										<li><a href="generic.html" class="button">Learn More</a></li>
-									</ul>
-								</footer>
-							</section>
-
 					</div>
 
 				<!-- Footer -->

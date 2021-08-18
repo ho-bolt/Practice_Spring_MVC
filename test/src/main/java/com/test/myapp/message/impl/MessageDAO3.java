@@ -8,6 +8,8 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.support.SqlSessionDaoSupport;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
+import com.test.myapp.member.MemberVO;
 import com.test.myapp.message.MessageVO;
 @Repository("messageDAO3")
 public class MessageDAO3 extends SqlSessionDaoSupport{
@@ -33,6 +35,10 @@ public class MessageDAO3 extends SqlSessionDaoSupport{
 		System.out.println("메세지 수정 mabatis");
 		getSqlSession().update("MessageDAO3.updateMessage", vo);
 		
+	}
+	public void UpdateMyPage(MemberVO vo) {
+		System.out.println("마이페이지 수정 mabatis");
+		getSqlSession().update("MessageDAO3.updateMyPage",vo);
 	}
 	
 	public MessageVO getMsg(MessageVO vo) {

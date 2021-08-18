@@ -29,7 +29,7 @@
 					<header id="header">
 					<a href="index.jsp"><span class="logo"><img src="images/logo.svg" alt="" /></span></a>
 						
-						<h1><spring:message code="message.Msg.msgList.title"/></h1>
+						<h1><spring:message code="message.Msg.msgList.title1"/></h1>
 						<p>Spring Project Practice</p>
 					</header>
 
@@ -83,7 +83,7 @@
 												<c:forEach items="${msgList }" var="v">
 												
 													<tr>
-														<td><a href="getMsg.do?mid=${v.mid }">${v.mid }</a></td>
+														<td><a href="getMsg.do?mid=${v.mid}">${v.mid }</a></td>
 														<td>${v.title}</td>
 														<td>${v.content }</td>
 													</tr>

@@ -24,7 +24,7 @@ public class MessageDAO2 {
 	public void InsertMessage(MessageVO vo) {
 		System.out.println("메세지 삽입 jdbctemplate");		
 		String sql="insert into message (mid,title,content) values((select nvl(max(mid),0)+1 from message),?,?)";
-			jdbctemplate.update(sql,vo.getWriter(),vo.getContent());
+			jdbctemplate.update(sql,vo.getTitle(),vo.getContent());
 	}
 	public void DeleteMessage(MessageVO vo) {
 		System.out.println("메세지 삭제 dao jdbctemplate");
@@ -72,7 +72,7 @@ public class MessageDAO2 {
 		public MessageVO mapRow(ResultSet rs, int rowNum) throws SQLException {
 			MessageVO data=new MessageVO();
 			data.setMid(rs.getInt("mid"));
-			data.setWriter(rs.getString("title"));
+			data.setTitle(rs.getString("title"));
 			data.setContent(rs.getString("content"));
 		
 			return data;

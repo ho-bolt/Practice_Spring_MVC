@@ -9,6 +9,8 @@
            <settings> <setting name="jdbcTypeForNull" value="NULL" /> </settings>
    <typeAliases><!-- 별칭을 붙인다.  무엇을 다룰 지 정해준다. --> 
      	<typeAlias type="com.test.myapp.message.MessageVO" alias="message"/><!-- com.seo.app.board.BoardVo를 줄여서 board로 한다.  -->
+     	<typeAlias type="com.test.myapp.member.MemberVO" alias="member"/><!-- com.seo.app.board.BoardVo를 줄여서 board로 한다.  -->
+   	
    </typeAliases>
    
    <mappers>

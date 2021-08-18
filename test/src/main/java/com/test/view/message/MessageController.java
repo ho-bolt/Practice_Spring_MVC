@@ -1,8 +1,11 @@
 package com.test.view.message;
 
 import java.io.File;
+import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.List;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,6 +22,7 @@ import com.test.myapp.message.MessageService;
 import com.test.myapp.message.MessageVO;
 import com.test.myapp.message.impl.MessageDAO;
 
+
 @Controller
 @SessionAttributes("msgData")
 public class MessageController {
@@ -31,21 +35,12 @@ public class MessageController {
 		
 		File file=null;
 			System.out.println("메세지 등록 컨트롤러");	
-//			String fileName="";
-//			MultipartFile uploadFile=vo.getUploadFile();
-//			if(!uploadFile.isEmpty()) {
-//				 fileName=uploadFile.getOriginalFilename();
-//				 file=new File("D:\\0615Spring_seo\\resource"+fileName);
-//				 //file객체를 바이트 배열로 변환
-//				//System.out.println(fileName);//pig.png 확장자와 이름까지만 보여준다
-//			uploadFile.transferTo(new File("D:\\0615Spring_seo\\resource"+fileName));
-//			//업로드한 파일을 관리하는 경로를 작성해두면 다운가능 
+//
+//			if(session.getAttribute("id")!=null) {
+//				String id=(String)session.getAttribute("id");
 //			}
-//			else {
-//				System.out.println("진행안함");
-//			}
-//			System.out.println("파일업로드"+fileName);
-			messageService.insertMessage(vo);	
+			
+				messageService.insertMessage(vo);	
 			return "getMsgList.do"; //redirect : 
 	}
 	
@@ -92,6 +87,19 @@ public class MessageController {
 		map.put("내용", "content");
 		return map;
 	}
+	
+	@RequestMapping(value="/updateMypage.do") 
+		public String updateMyPage(MessageVO vo) {
+			System.out.println("mypage 수정하기 ");
+			
+			messageService.updateMessage(vo);
+			return "mypage.jsp";
+			
+		}
+				
+		
+	}
+	
 	/*
 	@RequestMapping(value="/getMsgList.do")
 	public String getMsgList(@RequestParam(value="search",defaultValue="writer",required=false)String search,@RequestParam(value="searchContent",defaultValue="writer",required=false)String searchContent,MessageDAO dao, Model m)  {//command 객체

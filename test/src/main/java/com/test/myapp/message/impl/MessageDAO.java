@@ -29,11 +29,12 @@ public class MessageDAO {
 	public void InsertMessage(MessageVO vo) {
 		conn=JDBC.getconntection();
 		System.out.println("메세지 삽입");		
-		String sql="insert into message (mid,title,content) values((select nvl(max(mid),0)+1 from message),?,?,?)";
+		String sql="insert into message (mid,title,id,content) values((select nvl(max(mid),0)+1 from message),?,?,?)";
 		try {
 			pstmt=conn.prepareStatement(sql);
 			pstmt.setString(1, vo.getTitle());
-			pstmt.setString(2, vo.getContent());
+			pstmt.setString(2, vo.getId());
+			pstmt.setString(3, vo.getContent());
 			pstmt.executeUpdate();
 			
 			
@@ -133,8 +134,10 @@ public class MessageDAO {
 			while(rs.next()) {
 				MessageVO data=new MessageVO();
 				data.setMid(rs.getInt("mid"));
+				data.setId(rs.getString("id"));
 				data.setWriter(rs.getString("title"));
 				data.setContent(rs.getString("content"));
+				System.out.println(data);
 				datas.add(data);
 			}
 		} catch (SQLException e) {
@@ -147,39 +150,39 @@ public class MessageDAO {
 		return datas;
 		
 	}
-	public int getNext() {
-		
-		String sql="SELECT mid FROM message ORDER BY mid DESC";
-		try {
-			PreparedStatement pstmt=conn.prepareStatement(sql);
-			rs=pstmt.executeQuery();
-			if(rs.next()) {
-				return rs.getInt(1)+1; //현재 날짜 그대로 반환
-			}
-			return 1; //첫 번째 게시물인 경우 
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return -1; //데이터 베이스 오류 
-	}
-	
-	public boolean nextPage(int pageNumber) {
-
-		String sql="SELECT * FROM MESSAGE WHERE mid < ? order by mid desc limit 10 ";
-		try {
-			PreparedStatement pstmt=conn.prepareStatement(sql);
-			pstmt.setInt(1, getNext()-(pageNumber-1)*10);
-			rs=pstmt.executeQuery();
-			if(rs.next()) {
-				return true;
-			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return false; //데이터 베이스 오류 
-	}
+//	public int getNext() {
+//		
+//		String sql="SELECT mid FROM message ORDER BY mid DESC";
+//		try {
+//			PreparedStatement pstmt=conn.prepareStatement(sql);
+//			rs=pstmt.executeQuery();
+//			if(rs.next()) {
+//				return rs.getInt(1)+1; //현재 날짜 그대로 반환
+//			}
+//			return 1; //첫 번째 게시물인 경우 
+//		} catch (SQLException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		return -1; //데이터 베이스 오류 
+//	}
+//	
+//	public boolean nextPage(int pageNumber) {
+//
+//		String sql="SELECT * FROM MESSAGE WHERE mid < ? order by mid desc limit 10 ";
+//		try {
+//			PreparedStatement pstmt=conn.prepareStatement(sql);
+//			pstmt.setInt(1, getNext()-(pageNumber-1)*10);
+//			rs=pstmt.executeQuery();
+//			if(rs.next()) {
+//				return true;
+//			}
+//		} catch (SQLException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		return false; //데이터 베이스 오류 
+//	}
 	
 	
 	

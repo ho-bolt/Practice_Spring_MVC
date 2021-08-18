@@ -8,6 +8,7 @@ public class MessageVO {
 	private int mid;
 	private String title;
 	private String writer;
+	private String id;
 	private String content;
 	private String search;
 	private String searchContent;
@@ -20,6 +21,12 @@ public class MessageVO {
 	
 	public MultipartFile getUploadFile() {
 		return uploadFile;
+	}
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
 	}
 	public String getTitle() {
 		return title;
@@ -63,6 +70,6 @@ public class MessageVO {
 	
 	@Override
 	public String toString() {
-		return this.mid+"님의 이름은"+this.writer+"이고 내용은"+this.content+"이다";
+		return this.mid+"님의 아이디는"+this.id+"이고 제목은 "+this.title+"이고 내용은"+this.content+"이다";
 	}
 }

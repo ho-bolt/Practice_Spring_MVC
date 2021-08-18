@@ -45,6 +45,10 @@
    <update id="updateMessage" parameterType="message" >
     update message set content=#{content} where mid=#{mid}
    </update>
+   
+   <update id="updateMyPage" parameterType="member">
+   	update member set password=#{password} where id=#{id}
+   </update>
 
    <delete id="deleteMessage" parameterType="message" >
      delete from message where mid=#{mid}

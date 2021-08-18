@@ -2,6 +2,8 @@ package com.test.myapp.message;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 
 public interface MessageService {
 	public void insertMessage(MessageVO vo);
