@@ -16,6 +16,7 @@
    <mappers>
       <mapper resource="mapping/message-mapping.xml" /><!-- connection pool을 간략하게 해줌  -->
       <!-- mybatis 메인  -->
+      <mapper resource="mapping/member-mapping.xml"/>
    </mappers>
    
    <!-- db.properties에서 받아온 값을 여기에 넣어준다. 

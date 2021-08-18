@@ -88,17 +88,10 @@ public class MessageController {
 		return map;
 	}
 	
-	@RequestMapping(value="/updateMypage.do") 
-		public String updateMyPage(MessageVO vo) {
-			System.out.println("mypage 수정하기 ");
-			
-			messageService.updateMessage(vo);
-			return "mypage.jsp";
-			
-		}
+
 				
-		
-	}
+
+	
 	
 	/*
 	@RequestMapping(value="/getMsgList.do")
