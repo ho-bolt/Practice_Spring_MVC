@@ -17,6 +17,18 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+		<noscript><link rel="stylesheet" href="assets/css/fontawesome-all.min.css" /></noscript>
+		<style>
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
+
+header,h1{font-family: 'Nanum Pen Script', cursive;}
+h2{font-family: 'Nanum Pen Script', cursive;}
+p{font-family: 'Nanum Pen Script', cursive;}
+ui,li{font-family: 'Nanum Pen Script', cursive;}
+</style>
 	</head>
 	<body class="is-preload">
 
